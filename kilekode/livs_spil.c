@@ -1,5 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+int rund(int h,int l)
+{
+	if(h<0)
+		h=l-h+1;
+	return h
+}
+
 void mxpr(int h, int l ,int bane[][l])
 {
 	for(int tel=0; tel<l; tel++)
@@ -18,36 +25,54 @@ void fymx(int h, int l ,int bane[][l], char pl)
         for(int tel=0; tel<l; tel++)
         {
                 for(int tel2=0; tel2<h; tel2++)
-                {                                                                        bane[tel][tel2]=pl;
+                {
+			bane[tel][tel2]=pl;
                 }
         }
 
 }
-void næste(int h, int l ,int bane[][l],int bane2[][l], char pl)
+void naeste(int h, int l ,int bane[][l],int bane2[][l], char pl)
 {
 	for(int tel=0; tel<l; tel++)
         {
 		for(int tel2=0; tel2<h; tel2++)
                 {
 			int naboer = 0;
-                         for(int tel3=-1; tel<2; tel3++)
-			 {
-				 for(int tel4=-1; tel4<2; tel3++)
-				 {
-					 if(tel3 != tel4 && tel3!=0)
-					 {
-						 if(bane[tal+tal3][tal2+tal4]==pl)
-							{
-								naboer++;
-							}
+                        for(int tel3=-1; tel<2; tel3++)
+			{
+				for(int tel4=-1; tel4<2; tel3++)
+				{
+					if(tel3 != tel4 && tel3 != 0)
+					{
+						if(bane[rund(( tel + tel3 ) % l,l)][rund(( tel2 + tel4) % h,h)]==pl)
+							naboer++;
 
-					 }
+					}
 
 				 }
-			if(naboer)
-			 }
+			
+				bane2[tel][tel2]=pl;
+			if(bane[tel][tel2==pl])
+			{
+				if(naboer==2)
+					bane2[tel][tel2]=pl;
+				
+				if(naboer<2)
+					bane2[tel][tel2]="#";
+				
+				else
+					bane2[tel][tel2] = "#"
 
-                }                                                       }
+
+
+			}
+			else
+				if(naboer >2)
+					bane2[tel][tel2]=pl;
+			}
+
+                }                       
+	}
 }
 
 
